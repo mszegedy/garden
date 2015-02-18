@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(1024, 682), "Garden", sf::Style::Fullscreen);
+  sf::RenderWindow window(sf::VideoMode(1024, 682), "Garden");
   window.setVerticalSyncEnabled(true);
 
   // load border textures
