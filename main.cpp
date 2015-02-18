@@ -113,6 +113,16 @@ int main() {
         header_border_sprite.setTextureRect(sf::IntRect(0, 0, event.size.width, 6));
         buttons_bg_sprite.setTextureRect(sf::IntRect(0, 0, 48, event.size.height-154));
         buttons_border_sprite.setTextureRect(sf::IntRect(0, 0, 4, event.size.height-154));
+        sidebar_bg_sprite.setTextureRect(sf::IntRect(0, 0, 265, event.size.height-38));
+        if (sidebar_is_out)
+          sidebar_bg_sprite.setPosition(event.size.width-(260-4), 38);
+        else
+          sidebar_bg_sprite.setPosition(event.size.width+4, 38);
+        sidebar_border_sprite.setTextureRect(sf::IntRect(0, 0, 4, event.size.height-38));
+        if (sidebar_is_out)
+          sidebar_border_sprite.setPosition(event.size.width-260, 38);
+        else
+          sidebar_border_sprite.setPosition(event.size.width, 38);
       }
       if (event.type == sf::Event::MouseMoved) {
         int x = event.mouseMove.x;
