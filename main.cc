@@ -163,25 +163,25 @@ int main() {
     }
 
     // take care of sidebar
-    if (sidebar_is_out && \
+    if (sidebar_is_out &&
         sidebar_border_sprite.getPosition().x > (window.getSize().x-260)) {
-      sidebar_border_sprite.setPosition(window.getSize().x- \
-                                        (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/ \
+      sidebar_border_sprite.setPosition(window.getSize().x-
+                                        (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/
                                          sidebar_animation_time.asMilliseconds()),
                                         38);
-      sidebar_bg_sprite.setPosition(window.getSize().x+4- \
-                                    (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/ \
+      sidebar_bg_sprite.setPosition(window.getSize().x+4-
+                                    (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/
                                      sidebar_animation_time.asMilliseconds()),
                                     38);
     }
-    if (!sidebar_is_out && \
+    if (!sidebar_is_out &&
         sidebar_border_sprite.getPosition().x < (window.getSize().x)) {
-      sidebar_border_sprite.setPosition(window.getSize().x-260+ \
-                                        (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/ \
+      sidebar_border_sprite.setPosition(window.getSize().x-260+
+                                        (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/
                                          sidebar_animation_time.asMilliseconds()),
                                         38);
-      sidebar_bg_sprite.setPosition(window.getSize().x-260+4+ \
-                                    (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/ \
+      sidebar_bg_sprite.setPosition(window.getSize().x-260+4+
+                                    (260*sidebar_toggled_clock.getElapsedTime().asMilliseconds()/
                                      sidebar_animation_time.asMilliseconds()),
                                     38);
     }
