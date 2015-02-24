@@ -15,12 +15,12 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 // Garden libraries
-#include "UIElement.h"
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(1024, 682), "Garden");
   window.setVerticalSyncEnabled(true);
 
+  // AUTOMATION POINT: load the textures
   // load border textures
   sf::Texture vertical_border_4px;
   vertical_border_4px.loadFromFile("data/gfx/ui/vert-border-4-tileable.png");
@@ -32,6 +32,7 @@ int main() {
   sf::Texture button_mask;
   button_mask.loadFromFile("data/gfx/ui/buttons-mask-48.png");
 
+  // AUTOMATION POINT: load the sprites
   // load header bg
   sf::Texture header_bg;
   header_bg.loadFromFile("data/gfx/ui/header-bg-32-tileable.png");
@@ -113,6 +114,7 @@ int main() {
   sidebar_border_sprite.setTextureRect(sf::IntRect(0, 0, 4, window.getSize().y-38));
   sidebar_border_sprite.setPosition(window.getSize().x+4,38);
 
+  // AUTOMATION POINT: sidebar animation... jesus
   // extra sidebar stuff
   bool sidebar_is_out = false;
   sf::Clock sidebar_toggled_clock;
@@ -126,6 +128,7 @@ int main() {
       if (event.type == sf::Event::Resized) {
         sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
         window.setView(sf::View(visibleArea));
+        // AUTOMATION POINT: resizing everything
         header_bg_sprite.setTextureRect(sf::IntRect(0, 0, event.size.width, 32));
         header_border_sprite.setTextureRect(sf::IntRect(0, 0, event.size.width, 6));
         buttons_bg_sprite.setTextureRect(sf::IntRect(0, 0, 48, event.size.height-154));
@@ -144,6 +147,7 @@ int main() {
       if (event.type == sf::Event::MouseMoved) {
         int x = event.mouseMove.x;
         int y = event.mouseMove.y;
+        // AUTOMATION POINT: mouseovers
         if ((0 <= x && x < (0+48)) && (154 <= y && y < (154+48))) {
           button_mask_sprite_drawn = true;
           button_mask_sprite.setPosition(0, 154);
@@ -156,6 +160,7 @@ int main() {
         int x = event.mouseButton.x;
         int y = event.mouseButton.y;
         if (event.mouseButton.button == sf::Mouse::Left) {
+          // AUTOMATION POINT: button presses
           if ((0 <= x && x < (0+48)) && (154 <= y && y < (154+48))) {
             admin_button_sprite.setTexture(admin_button_pressed);
             admin_button_is_pressed = true;
@@ -166,6 +171,7 @@ int main() {
         int x = event.mouseButton.x;
         int y = event.mouseButton.y;
         if (event.mouseButton.button == sf::Mouse::Left) {
+          // AUTOMATION POINT: button presses
           if (admin_button_is_pressed) {
             admin_button_sprite.setTexture(admin_button_unpressed);
             admin_button_is_pressed = false;
@@ -180,6 +186,7 @@ int main() {
     }
 
     // take care of sidebar
+    // AUTOMATION POINT: sidebar animation... jesus
     if (sidebar_is_out &&
         sidebar_border_sprite.getPosition().x > (window.getSize().x-260)) {
       sidebar_border_sprite.setPosition(window.getSize().x-
@@ -204,6 +211,7 @@ int main() {
     }
 
     window.clear();
+    // AUTOMATION POINT: drawing everything
     window.draw(header_bg_sprite);
     window.draw(header_border_sprite);
     window.draw(box_bg_sprite);

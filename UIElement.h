@@ -31,26 +31,29 @@ public:
     LEFT,
     DOWN,
     UP,
-    BOTTOM_RIGHT,
-    BOTTOM_LEFT,
-    TOP_RIGHT,
-    TOP_LEFT
+    DOWN_RIGHT,
+    DOWN_LEFT,
+    UP_RIGHT,
+    UP_LEFT
   };
   ExpandDirection expand_direction;
+  // Methods:
+  void resize_to_window(sf::RenderWindow& window);
   // Constructors:
-  UIElement(sf::Texture& texture,
-            const Region region,
-            const sf::Vector2u& region_position,
-            const sf::Vector2u& extents,
-            const ExpandDirection expand_direction = NONE) :
+  UIElement(const Region region,
+            sf::Texture& texture,
+            const sf::Vector2<int>& region_position,
+            const sf::Vector2<int>& extents,
+            const ExpandDirection expand_direction) :
     region_position_(region_position), extents_(extents) {
-    switch(expand_direction) {
-    case RIGHT:
-
-    }
+    this->setTexture(texture);
   }
+  UIElement(const Region region,
+            sf::Texture& texture,
+            const sf::Vector2<int>& region_position) :
+    UIElement(region, texture, region_position, sf::Vector2<int>(0, 0), NONE) {}
 private:
-  sf::Vector2u region_position_;
-  sf::Vector2u extents_;
+  sf::Vector2<int> region_position_;
+  sf::Vector2<int> extents_;
 };
 #endif
