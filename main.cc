@@ -30,7 +30,7 @@ int main() {
   sf::Texture button_frame;
   button_frame.loadFromFile("data/gfx/ui/buttons-frame-48.png");
   sf::Texture button_mask;
-  button_mask.loadFromFile("data/gfx/ui/buttons-mask-48.png");
+  button_mask.loadFromFile("data/gfx/ui/buttons-mask-alt-48.png");
 
   // AUTOMATION POINT: load the sprites
   // load header bg
@@ -97,7 +97,7 @@ int main() {
   // load button mask sprite
   sf::Sprite button_mask_sprite;
   button_mask_sprite.setTexture(button_mask);
-  button_mask_sprite.setColor(sf::Color(255, 255, 255, 64));
+  // button_mask_sprite.setColor(sf::Color(255, 255, 255, 64));
   bool button_mask_sprite_drawn = false;
 
   // load sidebar bg
