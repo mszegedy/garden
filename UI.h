@@ -1,4 +1,4 @@
-/* UIElement.h
+/* UI.h
  * mszegedy, 2015
  *
  * This work is licensed under the Creative Commons Attribution 4.0
